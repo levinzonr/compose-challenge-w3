@@ -1,4 +1,4 @@
-package com.example.androiddevchallenge.ui.screens.first
+package com.example.androiddevchallenge.ui.screens.welcome
 
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow

@@ -29,24 +29,23 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.androiddevchallenge.ui.navigation.Destinations
 import com.example.androiddevchallenge.ui.navigation.Router
-import com.example.androiddevchallenge.ui.screens.first.WelcomeScreen
-import com.example.androiddevchallenge.ui.screens.second.SecondScreen
+import com.example.androiddevchallenge.ui.screens.welcome.WelcomeScreen
+import com.example.androiddevchallenge.ui.screens.login.LoginScreeen
 import com.example.androiddevchallenge.ui.screens.third.ThirdScreen
 import com.example.androiddevchallenge.ui.theme.MyTheme
 import android.view.WindowManager
 
-import android.os.Build
 import android.view.Window
 
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-            val w: Window = window
-            w.setFlags(
-                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
-            )
+        val w: Window = window
+        w.setFlags(
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+        )
         setContent {
             MyTheme {
                 MyApp()
@@ -62,12 +61,10 @@ fun MyApp() {
         val navController = rememberNavController()
         val router = remember { Router(navController) }
         // A surface container using the 'background' color from the theme
-        Surface(color = MaterialTheme.colors.background) {
-            NavHost(navController = navController, startDestination = Destinations.Goals) {
-                composable(Destinations.Goals) { WelcomeScreen(router, viewModel()) }
-                composable(Destinations.Tasks) { SecondScreen() }
-                composable(Destinations.TasksDetails) { ThirdScreen() }
-            }
+        NavHost(navController = navController, startDestination = Destinations.Goals) {
+            composable(Destinations.Goals) { WelcomeScreen(router, viewModel()) }
+            composable(Destinations.Login) { LoginScreeen() }
+            composable(Destinations.TasksDetails) { ThirdScreen() }
         }
     }
 }
