@@ -1,7 +1,12 @@
 package com.example.androiddevchallenge.ui.components
 
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -28,9 +33,16 @@ fun AppTextField(
         modifier = modifier
             .fillMaxWidth()
             .height(56.dp),
-        leadingIcon = { icon?.let { Icon(imageVector = icon, contentDescription = "") } },
-        onValueChange = onValueChange, placeholder = {
-            Text(text = placeholder, style = MaterialTheme.typography.body1)
+        onValueChange = onValueChange,
+        placeholder = {
+            Row {
+                icon?.let {
+                    Icon(imageVector = icon, contentDescription = "", Modifier.size(18.dp))
+                }
+                Spacer(modifier = Modifier.width(8.dp))
+                Text(text = placeholder, style = MaterialTheme.typography.body1)
+
+            }
         })
 }
 

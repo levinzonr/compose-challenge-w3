@@ -15,7 +15,9 @@
  */
 package com.example.androiddevchallenge
 
+import android.graphics.Color
 import android.os.Bundle
+import android.view.View
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.material.MaterialTheme
@@ -36,16 +38,16 @@ import com.example.androiddevchallenge.ui.theme.MyTheme
 import android.view.WindowManager
 
 import android.view.Window
+import com.jaeger.library.StatusBarUtil
 
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val w: Window = window
-        w.setFlags(
-            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
-        )
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.setStatusBarColor(Color.TRANSPARENT);
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
         setContent {
             MyTheme {
                 MyApp()

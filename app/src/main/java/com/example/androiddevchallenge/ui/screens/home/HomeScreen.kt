@@ -14,6 +14,8 @@ import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.FabPosition
 import androidx.compose.material.FloatingActionButton
+import androidx.compose.material.FloatingActionButtonDefaults
+import androidx.compose.material.FloatingActionButtonElevation
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
@@ -46,7 +48,7 @@ fun HomeScreen() {
     val search = remember { mutableStateOf("") }
     Scaffold(
         topBar = {
-            Box(modifier = Modifier.padding(top = 32.dp, start = 16.dp, end = 16.dp)) {
+            Box(modifier = Modifier.padding(top = 56.dp, start = 16.dp, end = 16.dp)) {
                 AppTextField(
                     value = search.value,
                     onValueChange = { search.value = it },
@@ -58,6 +60,7 @@ fun HomeScreen() {
         },
         bottomBar = {
             BottomAppBar(
+                elevation = 8.dp,
                 backgroundColor = MaterialTheme.colors.background
             ) {
                 BottomNavigationItem(
@@ -74,8 +77,10 @@ fun HomeScreen() {
         },
         floatingActionButton = {
             FloatingActionButton(
+
                 backgroundColor = MaterialTheme.colors.primary,
                 contentColor = MaterialTheme.colors.onPrimary,
+                elevation = FloatingActionButtonDefaults.elevation(0.dp),
                 onClick = { /*TODO*/ }) {
                 Icon(imageVector = Icons.Default.PlayArrow, contentDescription = "")
             }
@@ -86,11 +91,11 @@ fun HomeScreen() {
 
     ) {
 
-        LazyColumn(contentPadding = PaddingValues(start = 16.dp)) {
+        LazyColumn(verticalArrangement = Arrangement.spacedBy(32.dp), contentPadding = PaddingValues(start = 16.dp)) {
             item("grid") {
                 Grid(
                     title = "Favorited Collections",
-                    items = ItemsRepository.getBodyItems()
+                    items = ItemsRepository.getFavoritedItems()
                 )
             }
             item("carousel1") {
@@ -102,7 +107,7 @@ fun HomeScreen() {
             item("carousel2") {
                 Carousel(
                     title = "Align your mind",
-                    items = ItemsRepository.getBodyItems()
+                    items = ItemsRepository.getMindItems()
                 )
             }
 

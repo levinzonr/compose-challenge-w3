@@ -28,14 +28,14 @@ import com.skydoves.landscapist.coil.CoilImage
 fun FavoriteItem(item: Item, modifier: Modifier = Modifier) {
     val height = 56.dp
     Card(
-
+        elevation = 0.dp,
         shape = MaterialTheme.shapes.small,
         modifier = modifier
             .width(192.dp)
             .height(height)
     ) {
         Row(
-            modifier = Modifier.fillMaxSize().background(MaterialTheme.colors.surface),
+            modifier = Modifier.fillMaxSize(),
             horizontalArrangement = Arrangement.Start,
             verticalAlignment = Alignment.CenterVertically
         ) {

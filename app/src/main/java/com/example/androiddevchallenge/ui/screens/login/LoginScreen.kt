@@ -18,6 +18,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -29,6 +32,12 @@ import com.example.androiddevchallenge.ui.navigation.Router
 
 @Composable
 fun LoginScreeen(router: Router) {
+
+    val annotatedString = with(AnnotatedString.Builder("Don't have account? ")) {
+        pushStyle(SpanStyle(textDecoration = TextDecoration.Underline))
+        append("Sign up")
+        toAnnotatedString()
+    }
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
         Image(
             painterResource(id = R.drawable.login),
@@ -62,8 +71,8 @@ fun LoginScreeen(router: Router) {
 
 
             AppButton(text = "LOG IN", modifier = Modifier.fillMaxWidth(), onClick = { router.showHome() })
-            Spacer(modifier = Modifier.height(32.dp))
-            Text(text = "Don't have account? Sign up")
+            Spacer(modifier = Modifier.height(24.dp))
+            Text(text = annotatedString)
         }
     }
 }
