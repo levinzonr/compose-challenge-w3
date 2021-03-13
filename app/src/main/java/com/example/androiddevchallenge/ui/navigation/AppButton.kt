@@ -5,13 +5,13 @@ import androidx.navigation.compose.navigate
 
 object Destinations {
     const val Login = "login"
-    const val Goals = "goals"
-    const val TasksDetails = "tasks"
+    const val Home = "home"
+    const val Welcome = "welcome"
 }
 
 class Router(private val navHostController: NavHostController) {
     fun showLogin() { navHostController.navigate(Destinations.Login) }
-    fun showSecond() { navHostController.navigate(Destinations.Goals) }
+    fun showWelcome() { navHostController.navigate(Destinations.Welcome) }
+    fun showHome() { navHostController.navigate(Destinations.Home) }
     fun navigateBack() { navHostController.popBackStack() }
-    fun showTaskDetails() { navHostController.navigate(Destinations.TasksDetails) }
 }

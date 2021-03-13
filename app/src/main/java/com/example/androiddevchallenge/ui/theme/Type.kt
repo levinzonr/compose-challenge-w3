@@ -27,7 +27,7 @@ import com.example.androiddevchallenge.R
 
 val latoFonts = FontFamily(
     listOf(
-       Font(R.font.lato_regular, FontWeight.Normal, FontStyle.Normal),
+        Font(R.font.lato_regular, FontWeight.Normal, FontStyle.Normal),
         Font(R.font.bold, FontWeight.Bold, FontStyle.Normal),
     )
 )
@@ -42,17 +42,45 @@ val kulim = FontFamily(
 
 private val defaultTypography = Typography()
 val appTypography = Typography(
-    h1 = defaultTypography.h1.copy(fontFamily = kulim).copy(fontSize = 28.sp).copy(fontWeight = FontWeight.Light),
-    h2 = defaultTypography.h2.copy(fontFamily = kulim).copy(fontSize = 15.sp).copy(fontWeight = FontWeight.Normal),
-    h3 = defaultTypography.h3.copy(fontFamily = latoFonts, fontSize = 14.sp, fontWeight = FontWeight.Bold),
+    h1 = defaultTypography.h1.copy(
+        fontFamily = kulim,
+        fontSize = 28.sp,
+        fontWeight = FontWeight.Light,
+        letterSpacing = 1.15.sp
+    ),
+    h2 = defaultTypography.h2.copy(
+        fontFamily = kulim,
+        fontSize = 15.sp,
+        fontWeight = FontWeight.Normal,
+        letterSpacing = 1.15.sp
+    ),
+    h3 = defaultTypography.h3.copy(
+        fontFamily = latoFonts,
+        fontSize = 14.sp,
+        fontWeight = FontWeight.Bold
+    ),
     h4 = defaultTypography.h4,
     h5 = defaultTypography.h5,
     h6 = defaultTypography.h6,
     subtitle1 = defaultTypography.subtitle1,
     subtitle2 = defaultTypography.subtitle2,
-    body1 = defaultTypography.body1.copy(fontFamily = latoFonts, fontSize = 14.sp, fontWeight = FontWeight.Normal),
+    body1 = defaultTypography.body1.copy(
+        fontFamily = latoFonts,
+        fontSize = 14.sp,
+        fontWeight = FontWeight.Normal
+    ),
     body2 = defaultTypography.body2,
-    button = defaultTypography.button.copy(fontFamily = latoFonts, fontSize = 14.sp, fontWeight = FontWeight.Bold),
-    caption = defaultTypography.caption.copy(fontFamily = kulim, fontSize = 12.sp, fontWeight = FontWeight.Normal),
+    button = defaultTypography.button.copy(
+        fontFamily = latoFonts,
+        fontSize = 14.sp,
+        fontWeight = FontWeight.Bold,
+        letterSpacing = 1.15.sp
+    ),
+    caption = defaultTypography.caption.copy(
+        fontFamily = kulim,
+        fontSize = 12.sp,
+        fontWeight = FontWeight.Normal,
+        letterSpacing = 1.15.sp
+    ),
     overline = defaultTypography.overline
 )

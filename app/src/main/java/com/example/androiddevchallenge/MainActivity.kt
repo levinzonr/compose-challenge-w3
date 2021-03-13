@@ -31,7 +31,7 @@ import com.example.androiddevchallenge.ui.navigation.Destinations
 import com.example.androiddevchallenge.ui.navigation.Router
 import com.example.androiddevchallenge.ui.screens.welcome.WelcomeScreen
 import com.example.androiddevchallenge.ui.screens.login.LoginScreeen
-import com.example.androiddevchallenge.ui.screens.third.ThirdScreen
+import com.example.androiddevchallenge.ui.screens.home.HomeScreen
 import com.example.androiddevchallenge.ui.theme.MyTheme
 import android.view.WindowManager
 
@@ -61,10 +61,10 @@ fun MyApp() {
         val navController = rememberNavController()
         val router = remember { Router(navController) }
         // A surface container using the 'background' color from the theme
-        NavHost(navController = navController, startDestination = Destinations.Goals) {
-            composable(Destinations.Goals) { WelcomeScreen(router, viewModel()) }
-            composable(Destinations.Login) { LoginScreeen() }
-            composable(Destinations.TasksDetails) { ThirdScreen() }
+        NavHost(navController = navController, startDestination = Destinations.Welcome) {
+            composable(Destinations.Welcome) { WelcomeScreen(router, viewModel()) }
+            composable(Destinations.Login) { LoginScreeen(router) }
+            composable(Destinations.Home) { HomeScreen() }
         }
     }
 }

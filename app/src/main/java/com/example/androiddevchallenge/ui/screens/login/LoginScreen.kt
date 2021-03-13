@@ -21,12 +21,14 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.compose.rememberNavController
 import com.example.androiddevchallenge.R
 import com.example.androiddevchallenge.ui.components.AppButton
 import com.example.androiddevchallenge.ui.components.AppTextField
+import com.example.androiddevchallenge.ui.navigation.Router
 
 @Composable
-fun LoginScreeen() {
+fun LoginScreeen(router: Router) {
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
         Image(
             painterResource(id = R.drawable.login),
@@ -59,7 +61,7 @@ fun LoginScreeen() {
             Spacer(modifier = Modifier.height(8.dp))
 
 
-            AppButton(text = "LOG IN", modifier = Modifier.fillMaxWidth())
+            AppButton(text = "LOG IN", modifier = Modifier.fillMaxWidth(), onClick = { router.showHome() })
             Spacer(modifier = Modifier.height(32.dp))
             Text(text = "Don't have account? Sign up")
         }
@@ -70,5 +72,5 @@ fun LoginScreeen() {
 @Preview(device = Devices.PIXEL_4)
 @Composable
 fun PreviewSecon() {
-    LoginScreeen()
+    LoginScreeen(Router(rememberNavController()))
 }
