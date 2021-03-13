@@ -15,6 +15,7 @@
  */
 package com.example.androiddevchallenge
 
+import android.content.res.Configuration
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
@@ -38,16 +39,30 @@ import com.example.androiddevchallenge.ui.theme.MyTheme
 import android.view.WindowManager
 
 import android.view.Window
+import androidx.compose.foundation.isSystemInDarkTheme
 import com.jaeger.library.StatusBarUtil
 
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+
         window.setStatusBarColor(Color.TRANSPARENT);
-        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+
+        val mode = resources?.configuration?.uiMode?.and(Configuration.UI_MODE_NIGHT_MASK)
+        when (mode) {
+            Configuration.UI_MODE_NIGHT_YES -> {
+                window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+            }
+            Configuration.UI_MODE_NIGHT_NO -> {
+                window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+
+            }
+            Configuration.UI_MODE_NIGHT_UNDEFINED -> {}
+        }
+
         setContent {
             MyTheme {
                 MyApp()
