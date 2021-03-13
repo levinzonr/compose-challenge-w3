@@ -16,14 +16,12 @@
 package com.example.androiddevchallenge.ui.theme
 
 import androidx.compose.material.Typography
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.example.androiddevchallenge.R
-
 
 val latoFonts = FontFamily(
     listOf(
@@ -38,7 +36,6 @@ val kulim = FontFamily(
         Font(R.font.regular, FontWeight.Normal, FontStyle.Normal),
     )
 )
-
 
 private val defaultTypography = Typography()
 val appTypography = Typography(

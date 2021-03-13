@@ -1,3 +1,18 @@
+/*
+ * Copyright 2021 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.example.androiddevchallenge.ui.screens.home
 
 import androidx.compose.foundation.layout.Arrangement
@@ -10,21 +25,16 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.material.BottomAppBar
-import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.FabPosition
 import androidx.compose.material.FloatingActionButton
 import androidx.compose.material.FloatingActionButtonDefaults
-import androidx.compose.material.FloatingActionButtonElevation
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
-import androidx.compose.material.contentColorFor
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Spa
@@ -56,7 +66,6 @@ fun HomeScreen() {
                     placeholder = "Search"
                 )
             }
-
         },
         bottomBar = {
             BottomAppBar(
@@ -67,12 +76,14 @@ fun HomeScreen() {
                     label = { Text(text = "HOME", style = MaterialTheme.typography.caption) },
                     selected = true,
                     onClick = { /*TODO*/ },
-                    icon = { Icon(imageVector = Icons.Default.Spa, "") })
+                    icon = { Icon(imageVector = Icons.Default.Spa, "") }
+                )
                 BottomNavigationItem(
                     label = { Text(text = "PROFILE", style = MaterialTheme.typography.caption) },
                     selected = false,
                     onClick = { /*TODO*/ },
-                    icon = { Icon(imageVector = Icons.Default.AccountCircle, "") })
+                    icon = { Icon(imageVector = Icons.Default.AccountCircle, "") }
+                )
             }
         },
         floatingActionButton = {
@@ -81,13 +92,13 @@ fun HomeScreen() {
                 backgroundColor = MaterialTheme.colors.primary,
                 contentColor = MaterialTheme.colors.onPrimary,
                 elevation = FloatingActionButtonDefaults.elevation(0.dp),
-                onClick = { /*TODO*/ }) {
+                onClick = { /*TODO*/ }
+            ) {
                 Icon(imageVector = Icons.Default.PlayArrow, contentDescription = "")
             }
         },
         isFloatingActionButtonDocked = true,
         floatingActionButtonPosition = FabPosition.Center
-
 
     ) {
 
@@ -110,7 +121,6 @@ fun HomeScreen() {
                     items = ItemsRepository.getMindItems()
                 )
             }
-
         }
     }
 }
@@ -145,7 +155,6 @@ fun Carousel(title: String, items: List<Item>) {
             }
         }
     }
-
 }
 
 @Composable
@@ -156,7 +165,6 @@ fun Header(text: String) {
             style = MaterialTheme.typography.h2,
         )
     }
-
 }
 
 @Preview(device = Devices.PIXEL_4)
@@ -164,6 +172,5 @@ fun Header(text: String) {
 fun PreviewSecon() {
     MyTheme() {
         HomeScreen()
-
     }
 }

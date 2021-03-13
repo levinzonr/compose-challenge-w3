@@ -17,7 +17,6 @@ package com.example.androiddevchallenge.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Typography
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
@@ -40,7 +39,7 @@ private val LightColorPalette = lightColors(
     background = Color(0xFFF0EAE2),
     surface = Color(0xD9FFFFFF),
     onPrimary = Color.White,
-    onSecondary =  Color.White,
+    onSecondary = Color.White,
     onBackground = Color(0xFF655454),
     onSurface = Color(0xCC333333)
 )
